@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenFront Solo MVP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="menuOverlay" class="overlay visible">
+    <div class="panel">
+      <h1>OpenFront Solo MVP</h1>
+      <label>Map Size
+        <select id="mapSizeSelect">
+          <option value="256x144">Small 256x144</option>
+          <option value="384x216" selected>Medium 384x216 (default)</option>
+          <option value="512x288">Large 512x288</option>
+        </select>
+      </label>
+      <label>Bot Count: <span id="botCountValue">20</span>
+        <input id="botCountSlider" type="range" min="5" max="50" step="1" value="20" />
+      </label>
+      <label>Difficulty
+        <select id="difficultySelect">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <button id="startBtn">Start</button>
+    </div>
+  </div>
+
+  <div id="hud" class="panel hidden">
+    <div class="row stats">
+      <span id="goldText">Gold: 0</span>
+      <span id="popText">Pop: 0 / 0</span>
+      <span id="landText">Land: 0%</span>
+      <span id="troopsText">Troops: 0</span>
+      <span id="workersText">Workers: 0</span>
+    </div>
+    <div class="row">
+      <label>Workers % <span id="workerValue">60%</span>
+        <input id="workerSlider" type="range" min="20" max="90" step="1" value="60" />
+      </label>
+      <label>Attack Ratio % <span id="attackValue">20%</span>
+        <input id="attackSlider" type="range" min="5" max="60" step="1" value="20" />
+      </label>
+    </div>
+    <div class="row">
+      <button id="buildCityBtn">Build City</button>
+      <button id="buildDefenseBtn">Build Defense</button>
+      <button id="cancelBuildBtn">Cancel Build</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="speedBtn">Speed 1x</button>
+      <button id="restartBtn">Restart</button>
+    </div>
+    <div id="buildModeText">Build Mode: none</div>
+    <div id="tooltipText">Tile: -</div>
+  </div>
+
+  <div id="endOverlay" class="overlay hidden">
+    <div class="panel">
+      <h2 id="endTitle"></h2>
+      <p id="endStats"></p>
+      <button id="endRestartBtn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
