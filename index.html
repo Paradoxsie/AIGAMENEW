@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenFront Solo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="menuOverlay" class="overlay visible">
+    <div class="panel">
+      <h1>OpenFront Solo</h1>
+      <label>Map Size
+        <select id="mapSize">
+          <option value="256x144">Small 256x144</option>
+          <option value="384x216" selected>Medium 384x216 (default)</option>
+          <option value="512x288">Large 512x288</option>
+        </select>
+      </label>
+      <label>Bot Count: <span id="botCountLabel">20</span>
+        <input id="botCount" type="range" min="5" max="50" value="20" />
+      </label>
+      <label>Difficulty
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <button id="startBtn">Start</button>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div class="topbar">
+      <button id="pauseBtn">Pause</button>
+      <button id="speedBtn">Speed 1x</button>
+      <button id="restartBtn">Restart</button>
+      <span id="statusText"></span>
+    </div>
+
+    <div class="stats">
+      <span id="goldStat"></span>
+      <span id="popStat"></span>
+      <span id="landStat"></span>
+      <span id="splitStat"></span>
+    </div>
+
+    <div class="controls">
+      <label>Workers %: <span id="workerPctLabel"></span>
+        <input id="workerPct" type="range" min="10" max="90" value="60" />
+      </label>
+      <label>Attack Ratio %: <span id="attackPctLabel"></span>
+        <input id="attackPct" type="range" min="5" max="60" value="20" />
+      </label>
+      <div class="buildBtns">
+        <button id="buildCityBtn">Build City</button>
+        <button id="buildDefenseBtn">Build Defense</button>
+        <button id="cancelBuildBtn">Cancel Build</button>
+      </div>
+      <div id="tooltip"></div>
+    </div>
+  </div>
+
+  <div id="endOverlay" class="overlay hidden">
+    <div class="panel">
+      <h2 id="endTitle"></h2>
+      <p id="endStats"></p>
+      <button id="playAgainBtn">Back to Menu</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
